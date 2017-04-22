@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="quiz">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <script src="../angular/angular.min.js"></script>
+    <script src="../angular/jquery.js"></script>
+</head>
+<body>
+<h1>Quiz</h1>
+<div class="main-container" ng-controller="QuizController">
+    <div ng-hide="begin || end" class="intro">
+        <h2>Test Your Knowledge</h2>
+        <h3 class="begin" ng-click="start()">Begin</h3>
+    </div>
+    <div class="container" ng-show="begin">
+        <div class="question"><h2>{{myQuiz[question].question}}</h2></div>
+        <div class="answers"
+             ng-class="{image:i.image}"
+             ng-style="i.image && {'background-image':'url({{i.image}})'}"
+             ng-click="sel($event)"
+             ng-repeat="i in myQuiz[question].answers">{{i.image?"":i.text}}</div>
+        <div class="submit" ng-click="submit()">Submit</div>
+        <div class="next" ng-click="next()">Next</div>
+        <div class="progress"><span ng-repeat="i in myQuiz"></span></div>
+    </div>
+    <div class="finish" ng-show="end">
+        <h2>You Are Done!</h2>
+        <h3>Your Score is {{score}}/{{myQuiz.length}}</h3>
+    </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

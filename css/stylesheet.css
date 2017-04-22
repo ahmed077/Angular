@@ -1,0 +1,87 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+.main-container {
+    width:600px;
+    margin:auto;
+    padding:15px;
+    border:1px solid black;
+    border-radius:15px;
+    background:#EEE;
+    overflow: hidden;
+    min-height:315px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.intro,.container,.finish{position: relative;width:100%;}
+.container,.finish{top:-300px;}
+h1,h2,h3{text-align: center;width:100%}
+h1{margin:40px 0;}
+.question{
+    background:#ccc;
+    padding:10px;
+    margin-bottom:20px;
+    border:1px solid black;
+    border-radius:10px;
+}
+.answers{
+    display:inline-block;
+    width:calc(50% - 42px);
+    margin:20px;
+    min-height:38px;
+    padding:10px;
+    background:#f9f9f9;
+    border:1px solid black;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.answers:not(.select){cursor: pointer;}
+.answers:not(.select):hover{text-shadow:1px 1px 5px #000;}
+.answers:not(.select):active{color:white;}
+.progress{
+    border-radius:5px;
+    border:1px solid black;
+    overflow: hidden;
+}
+.progress span{
+    float:left;
+    height:5px;
+    width:0;
+    transition:background 1s ease-in-out;
+    background-color:mediumseagreen;
+}
+.progress span + span {
+     border-left:1px solid black;
+}
+.submit, .next, .begin{
+    background-image:linear-gradient(darkred,red,darkred);
+    color:white;
+    padding:7px 15px;
+    margin:0 auto 10px;
+    border-radius:6px;
+    width:80px;
+    text-align: center;
+    cursor: pointer;
+}
+.next{display:none;}
+.submit:hover, .next:hover, .begin:hover{background-image:linear-gradient(red,darkred,red);}
+.submit:active, .next:active, .begin:active{background-image:none;background:darkred;}
+.selected{border-width: 2px;}
+.correct::after,.wrong::after{
+    background-position: top right;
+    display: block;
+    content: 'x';
+    float: right;
+    top: 3px;
+    right:3px;
+    color: transparent;
+    background-repeat: no-repeat;
+    width: 20px;
+}
+.correct::after{background-image:url(../images/icon_correct.svg);}
+.wrong::after{background-image:url(../images/icon_incorrect.svg);}
